@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "LuaModule",
     "author": "Adam Fosbenner",
     "description": "Utility module for representing Lua values in a human-readable way. Based on inspect.lua by Enrique García Cota (https://github.com/kikito/inspect.lua) with minimal changes by Adam Fosbenner.",

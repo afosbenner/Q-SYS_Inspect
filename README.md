@@ -10,21 +10,11 @@ For more information, see [External Lua Modules on Q-SYS Online Help](https://he
 2. In Q-SYS Designer, open Design Resources, where Q-SYS_Inspect should now be listed under the Available tab.
 3. Click on Install Module button. The module should now be listed under the Installed tab. See below for usage infomation.
 
-## Usage
-Code in script:
-
+## Typical Usage
+Drop this into your script, at the top:
 ```lua
+-- Reminder: install module in design using Design Resources
 inspect = require("Q-SYS_Inspect")
-
--- example table
-local tbl = {"hello", "there", 100, true}
-tbl.k = "v"
-
--- most basic usage
-print("basic usage:")
-print("\n"..inspect(tbl))
-
--- wrapper function can be used for more succinct printing
 local function insp(obj, objName)
   local objStr = inspect(obj)
   if objName then
@@ -32,6 +22,37 @@ local function insp(obj, objName)
   end
   print("\n\n"..objStr.."\n")
 end
+```
+
+Later, when you need to inspect a table (called tbl in this example):
+```lua
+insp(tbl, "tbl")
+```
+or just
+```lua
+insp(tbl)
+```
+
+## Example
+Example script to demonstrate how it works:
+
+```lua
+inspect = require("Q-SYS_Inspect")
+local function insp(obj, objName)
+  local objStr = inspect(obj)
+  if objName then
+    objStr = "Inspecting '"..objName.."'\n"..objStr
+  end
+  print("\n\n"..objStr.."\n")
+end
+
+-- example table
+local tbl = {"hello", "there", 100, true}
+tbl.k = "v"
+
+-- most basic usage
+print("basic usage:")
+print("\n"..inspect(tbl)) -- inspect returns a string, but does not print
 
 -- usage with wrapper function
 print("using wrapper function:")
