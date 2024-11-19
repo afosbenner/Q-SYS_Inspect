@@ -98,3 +98,6 @@ Inspecting 'tbl'
 
 
 ```
+
+## Known Issues
+Due to a deliberate limitation in the Q-SYS Lua environment, attempting to use inspect on tables of a sufficient size can cause a "Max execution limits exceeded" error to be thrown.
